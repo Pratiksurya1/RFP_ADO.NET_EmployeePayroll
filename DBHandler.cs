@@ -133,5 +133,39 @@ namespace ADO.NET_EmployeePayroll
                 connection.Close();
             }
         }
+
+        public override void ArithmeticOperations()
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("SELECT gender, SUM(basic_pay) AS sum, AVG(basic_pay) AS avg, MAX(basic_pay) AS max,MIN(basic_pay) AS min,COUNT(basic_pay) AS count FROM employee_payroll GROUP BY gender", connection);
+                    command.CommandType = System.Data.CommandType.Text;
+                    connection.Open();
+                    SqlDataReader reader1 = command.ExecuteReader();
+                    if (reader1.HasRows)
+                    {
+                        while (reader1.Read())
+                        {
+                            Console.WriteLine("Ans is : " + reader1[0].ToString() + "\t\t" + reader1[1].ToString() + "\t\t" + reader1[2].ToString() + "\t\t" + reader1[3].ToString() + "\t\t" + reader1[4].ToString() + "\t\t" + reader1[5].ToString());
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("No Data Found");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

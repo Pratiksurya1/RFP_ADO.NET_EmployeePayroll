@@ -22,10 +22,12 @@ namespace ADO.NET_EmployeePayroll
                 Console.WriteLine("Connection failed");
             }
 
-          //  dbHandler.Select();
+            //  dbHandler.Select();
 
-            dbHandler.Update("'rohit'");
-            dbHandler.selectByDate("'2010-11-05'", "'2021-12-09'");
+            //  dbHandler.Update("'rohit'");
+            //  dbHandler.selectByDate("'2010-11-05'", "'2021-12-09'");
+
+            dbHandler.ArithmeticOperations();
         }
     }
 }
