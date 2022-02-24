@@ -28,6 +28,17 @@ namespace ADO.NET_EmployeePayroll
             //  dbHandler.selectByDate("'2010-11-05'", "'2021-12-09'");
 
             dbHandler.ArithmeticOperations();
+
+            EmpDataSet emp = new EmpDataSet();
+
+            emp.name = "prtap";
+            emp.gender = 'M';
+            emp.basic_pay = 15422;
+            emp.deductions = 4522;
+            emp.taxable_pay = 455;
+            emp.incometax = 556;
+            emp.net_pay = 45;
+            dbHandler.Insert(emp);
         }
     }
 }

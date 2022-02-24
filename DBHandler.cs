@@ -167,5 +167,43 @@ namespace ADO.NET_EmployeePayroll
                 connection.Close();
             }
         }
+
+        public override void Insert(EmpDataSet emp)
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("InsertDaba", connection);
+                    command.CommandType = System.Data.CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("name", emp.name);
+                    command.Parameters.AddWithValue("gender", emp.gender);
+                    command.Parameters.AddWithValue("basic_pay", emp.basic_pay);
+                    command.Parameters.AddWithValue("deductions", emp.deductions);
+                    command.Parameters.AddWithValue("taxable_pay", emp.taxable_pay);
+                    command.Parameters.AddWithValue("incometax", emp.incometax);
+                    command.Parameters.AddWithValue("net_pay", emp.net_pay);
+                    connection.Open();
+                    int a = command.ExecuteNonQuery();
+                    if (a != 0)
+                    {
+                        Console.WriteLine("Inserted");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not Inserted");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
