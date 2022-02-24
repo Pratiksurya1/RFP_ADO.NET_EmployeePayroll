@@ -76,7 +76,7 @@ namespace ADO.NET_EmployeePayroll
             {
                 using (connection)
                 {
-                    SqlCommand command = new SqlCommand("UPDATE employee_payroll SET salary=300000 where name=" + name, connection);
+                    SqlCommand command = new SqlCommand("UPDATE employee_payroll SET basic_pay=300000 where name=" + name, connection);
                     command.CommandType = System.Data.CommandType.Text;
                     connection.Open();
                     int a = command.ExecuteNonQuery();
@@ -88,8 +88,6 @@ namespace ADO.NET_EmployeePayroll
                     {
                         Console.WriteLine("Not Updated");
                     }
-
-
                 }
             }
             catch (Exception ex)
