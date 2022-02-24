@@ -12,6 +12,15 @@ namespace ADO.NET_EmployeePayroll
         {
             Console.WriteLine("****************** WELLCOME ******************");
 
+            DBHandler dbHandler = new DBHandler();  
+            if(dbHandler.CheckConnection() != null)
+            {
+                Console.WriteLine("Connection Succeed");
+            }
+            else
+            {
+                Console.WriteLine("Connection failed");
+            }
         }
     }
 }
