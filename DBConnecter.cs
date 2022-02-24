@@ -8,11 +8,14 @@ using System.Threading.Tasks;
 
 namespace ADO.NET_EmployeePayroll
 {
-    public class DBConnecter
+    public abstract class DBConnecter
     {
         public SqlConnection GetConnection()
         {
             return new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=payroll_service;Integrated Security=True");
         }
+
+        public abstract void Select();
+
     }
 }
