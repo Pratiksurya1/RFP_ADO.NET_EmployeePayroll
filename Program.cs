@@ -24,7 +24,8 @@ namespace ADO.NET_EmployeePayroll
 
           //  dbHandler.Select();
 
-            dbHandler.Update("rohit");
+            dbHandler.Update("'rohit'");
+            dbHandler.selectByDate("'2010-11-05'", "'2021-12-09'");
         }
     }
 }

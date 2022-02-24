@@ -17,5 +17,6 @@ namespace ADO.NET_EmployeePayroll
 
         public abstract void Select();
         public abstract void Update(String name);
+        public abstract void selectByDate(string start, string end);
     }
 }
