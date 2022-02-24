@@ -22,7 +22,9 @@ namespace ADO.NET_EmployeePayroll
                 Console.WriteLine("Connection failed");
             }
 
-            dbHandler.Select();
+          //  dbHandler.Select();
+
+            dbHandler.Update("rohit sharma");
         }
     }
 }

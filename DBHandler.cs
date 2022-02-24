@@ -68,5 +68,38 @@ namespace ADO.NET_EmployeePayroll
                 connection.Close();
             }
         }
+
+        public override void Update(String name)
+        {
+            SqlConnection connection = GetConnection();
+            try
+            {
+                using (connection)
+                {
+                    SqlCommand command = new SqlCommand("UPDATE employee_payroll SET salary=300000 where name=" + name, connection);
+                    command.CommandType = System.Data.CommandType.Text;
+                    connection.Open();
+                    int a = command.ExecuteNonQuery();
+                    if (a != 0)
+                    {
+                        Console.WriteLine("Update Successfully");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Not Updated");
+                    }
+
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }
